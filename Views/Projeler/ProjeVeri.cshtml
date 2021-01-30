@@ -1,0 +1,31 @@
+﻿@model RakamIKProjesi.Models.Siniflar.Projeler
+@{
+    ViewBag.Title = "ProjeVeri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="margin-top:30px">Rakam Teknoloji | Proje Güncelle</h3>
+@*Bu sayfa yüklendikten sonra bir post işlemi gerçekleştirdiğinde hangi ActionResultın çalışacağı;*@ 
+
+@using (Html.BeginForm("ProjeGuncelle", "Projeler", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ProjeID)
+
+    @Html.LabelFor(x => x.ProjeAd)
+    @Html.TextBoxFor(x => x.ProjeAd, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.KullanilanTeknoloji)
+    @Html.TextBoxFor(x => x.KullanilanTeknoloji, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.BaslangicTarihi)
+    @Html.TextBoxFor(x => x.BaslangicTarihi, new { @class = "form-control" })
+
+    <hr />
+
+    @Html.LabelFor(x => x.ProjeAktifligi)
+    @Html.CheckBoxFor(x => x.ProjeAktifligi, new { @class = "checked" })
+
+    <br />
+
+    <button class="btn btn-warning" style="margin-top:20px">Güncelle</button>
+}

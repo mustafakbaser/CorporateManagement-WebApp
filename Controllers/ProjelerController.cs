@@ -20,6 +20,7 @@ namespace RakamIKProjesi.Controllers
         [HttpGet]
         public ActionResult YeniProje()
         {
+            //List<SelectListItem> deger1 = (from x in context.Projelers.ToList() select new SelectListItem {   Text = x.KullanilanTeknoloji, Value = x.ProjeID.ToString()}).ToList(); ViewBag.dgr1 = deger1;
             return View();
         }
 
@@ -42,6 +43,21 @@ namespace RakamIKProjesi.Controllers
         {
             var projeDegeri = context.Projelers.Find(id);
             projeDegeri.ProjeAktifligi = true;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult ProjeVeri(int id)
+        {
+            var projeDegeri = context.Projelers.Find(id);
+            return View("ProjeVeri", projeDegeri);
+        }
+        public ActionResult ProjeGuncelle(Projeler proje)
+        {
+            var mevcutDeger = context.Projelers.Find(proje.ProjeID);
+            mevcutDeger.ProjeAd = proje.ProjeAd;
+            mevcutDeger.KullanilanTeknoloji = proje.KullanilanTeknoloji;
+            mevcutDeger.ProjeAktifligi = proje.ProjeAktifligi;
+            mevcutDeger.BaslangicTarihi = proje.BaslangicTarihi;
             context.SaveChanges();
             return RedirectToAction("Index");
         }

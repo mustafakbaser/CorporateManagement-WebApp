@@ -266,6 +266,7 @@
     <Content Include="Views\Departmanlar\DepartmanVeri.cshtml" />
     <Content Include="Views\Projeler\Index.cshtml" />
     <Content Include="Views\Projeler\YeniProje.cshtml" />
+    <Content Include="Views\Projeler\ProjeVeri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

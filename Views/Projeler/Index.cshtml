@@ -11,9 +11,10 @@
     <tr>
         <td>Proje ID</td>
         <td>Proje Adı</td>
-        <td>Kullanılan Teknoloji</td>
+        <td>Proje Türü</td>
         <td>Başlangıç Tarihi</td>
         <td>Proje Aktifliği</td>
+        <td>Proje Güncelleme</td>
         <th>Durum Güncelleme</th>
     </tr>
     @foreach (var proje in Model)
@@ -21,30 +22,62 @@
         <tr>
             <td>@proje.ProjeID</td>
             <td>@proje.ProjeAd</td>
-            <td>@proje.KullanilanTeknoloji</td>
-            <td>@proje.BaslangicTarihi</td>
             <td>
-                @if (proje.ProjeAktifligi == true)
+                @if (@proje.KullanilanTeknoloji == 1.ToString())
                 {
-                    <p>Aktif</p>
+                    <p>E-Ticaret</p>
+                }
+                else if (@proje.KullanilanTeknoloji == 2.ToString())
+                {
+                    <p>CRM</p>
+                }
+                else if (@proje.KullanilanTeknoloji == 3.ToString())
+                {
+                    <p>Mobil Uygulama</p>
+                }
+                else if (@proje.KullanilanTeknoloji == 4.ToString())
+                {
+                    <p>Sanal Pos, Ödeme</p>
+                }
+                else if (@proje.KullanilanTeknoloji == 5.ToString())
+                {
+                    <p>Kurumsal Uygulamalar</p>
+                }
+                else if (@proje.KullanilanTeknoloji == 6.ToString())
+                {
+                    <p>Canlı Destek</p>
                 }
                 else
                 {
-                    <p>Pasif</p>
+                    <p>Bakım</p>
                 }
-            </td>
-            <td>
-                @if (proje.ProjeAktifligi == true)
-                {
-                    <a href="/Projeler/ProjeTamamla/@proje.ProjeID" style="color:green">&radic; &mdash; Tamamlandı Olarak İşaretle</a>
-                }
-                else
-                {
-                    <a href="/Projeler/ProjeDevamEt/@proje.ProjeID" style="color:red">&Chi; &mdash; Tamamlanmadı Olarak İşaretle</a>
-                }
-            </td>
-        </tr>
-    }
+        </td>
+        <td>@proje.BaslangicTarihi</td>
+        <td>
+            @if (proje.ProjeAktifligi == true)
+            {
+                <p>Aktif</p>
+            }
+            else
+            {
+                <p>Pasif</p>
+            }
+        </td>
+        <td>
+            <a href="/Projeler/ProjeVeri/@proje.ProjeID">Güncelle</a>
+        </td>
+        <td>
+            @if (proje.ProjeAktifligi == true)
+            {
+                <a href="/Projeler/ProjeTamamla/@proje.ProjeID" style="color:green">&radic; &mdash; Tamamlandı Olarak İşaretle</a>
+            }
+            else
+            {
+                <a href="/Projeler/ProjeDevamEt/@proje.ProjeID" style="color:red">&Chi; &mdash; Tamamlanmadı Olarak İşaretle</a>
+            }
+        </td>
+    </tr>
+}
 </table>
 <a href="/Projeler/YeniProje/" class="btn btn-info">Yeni Proje</a>
 
