@@ -1,0 +1,41 @@
+﻿@using RakamIKProjesi.Models.Siniflar
+@model List<Departmanlar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="margin-top:25px">
+    <tr>
+        <th>Departman ID</th>
+        <th>Departman Adı</th>
+        <th>Aktiflik</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var departmanlar in Model)
+    {
+        <tr>
+            <td>
+                @departmanlar.DepartmanID
+            </td>
+            <td>
+                @departmanlar.DepartmanAd
+            </td>
+            <td>
+                @departmanlar.Aktiflik
+            </td>
+            <td>
+                <a href="/Departmanlar/DepartmanSil/@departmanlar.DepartmanID">Sil</a>
+            </td>
+            <td>
+                <a href="/Departmanlar/DepartmanVeri/@departmanlar.DepartmanID">Güncelle</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="/Departmanlar/DepartmanEkle" class="btn btn-primary">Yeni Departman</a>

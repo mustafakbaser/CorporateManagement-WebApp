@@ -20,5 +20,6 @@ namespace RakamIKProjesi.Models.Siniflar
         public Projeler Proje { get; set; } //Bir personel sadece bir projede çalışabilir.
         public Departmanlar Departman { get; set; } //Bir personel sadece bir departmanda bulunabilir.
 
+
     }
 }

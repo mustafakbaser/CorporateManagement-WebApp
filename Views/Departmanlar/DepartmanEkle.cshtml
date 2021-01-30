@@ -1,0 +1,21 @@
+﻿@model RakamIKProjesi.Models.Siniflar.Departmanlar
+
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Rakam Teknoloji | Yeni Departman Oluştur</h3>
+<br />
+<form class="form-group" method="post">
+    <!--<p>Departman Adı:</p> yapısını DRY prensibine uymadığı için kullanmıyorum, direkt veritabanından çekiyorum; -->
+    @Html.LabelFor(x => x.DepartmanAd)
+    @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" }) <!--Lambda Operation; x => x, atama yapar.-->
+    <br />
+
+    @Html.LabelFor(x => x.Aktiflik)
+    @Html.TextBoxFor(x => x.Aktiflik, new { @class = "form-control" })
+
+    <button class="btn btn-info" style="margin-top:30px">Kaydet</button>
+</form>

@@ -15,6 +15,7 @@ namespace RakamIKProjesi.Models.Siniflar
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string DepartmanAd { get; set; }
+        public bool Aktiflik { get; set; }
         public ICollection<Personel> Personels { get; set; } //Her bir departmanda birden fazla personel bulunabilir
     }
 }
