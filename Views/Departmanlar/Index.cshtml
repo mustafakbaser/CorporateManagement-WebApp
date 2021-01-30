@@ -26,7 +26,14 @@
                 @departmanlar.DepartmanAd
             </td>
             <td>
-                @departmanlar.Aktiflik
+                @if (departmanlar.Aktiflik == true)
+                {
+                    <p>Aktif</p>
+                }
+                else
+                {
+                    <p>Pasif</p>
+                }
             </td>
             <td>
                 <a href="/Departmanlar/DepartmanSil/@departmanlar.DepartmanID">Sil</a>

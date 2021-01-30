@@ -1,0 +1,27 @@
+﻿@model RakamIKProjesi.Models.Siniflar.Projeler
+@{
+    ViewBag.Title = "YeniProje";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="margin-top:30px; margin-bottom:30px">Yeni Proje</h3>
+<form class="form-group" method="post">
+
+    @Html.LabelFor(x => x.ProjeAd)
+    @Html.TextBoxFor(x => x.ProjeAd, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.KullanilanTeknoloji)
+    @Html.TextBoxFor(x => x.KullanilanTeknoloji, new { @class = "form-control" })
+
+    @Html.LabelFor(x => x.BaslangicTarihi)
+    @Html.TextBoxFor(x => x.BaslangicTarihi, new { @class = "form-control" })
+
+    <hr />
+
+    @Html.LabelFor(x => x.ProjeAktifligi)
+    @Html.CheckBoxFor(x => x.ProjeAktifligi, new { @class = "checked" })
+
+    <br />
+
+    <button class="btn btn-primary" style="margin-top:20px">Oluştur</button>
+</form>

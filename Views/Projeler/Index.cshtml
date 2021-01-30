@@ -1,0 +1,50 @@
+﻿@using RakamIKProjesi.Models.Siniflar
+@model List<Projeler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="margin-top:30px; margin-bottom:30px">Rakam IK | Projeler</h2>
+<table class="table table-bordered">
+    <tr>
+        <td>Proje ID</td>
+        <td>Proje Adı</td>
+        <td>Kullanılan Teknoloji</td>
+        <td>Başlangıç Tarihi</td>
+        <td>Proje Aktifliği</td>
+        <th>Durum Güncelleme</th>
+    </tr>
+    @foreach (var proje in Model)
+    {
+        <tr>
+            <td>@proje.ProjeID</td>
+            <td>@proje.ProjeAd</td>
+            <td>@proje.KullanilanTeknoloji</td>
+            <td>@proje.BaslangicTarihi</td>
+            <td>
+                @if (proje.ProjeAktifligi == true)
+                {
+                    <p>Aktif</p>
+                }
+                else
+                {
+                    <p>Pasif</p>
+                }
+            </td>
+            <td>
+                @if (proje.ProjeAktifligi == true)
+                {
+                    <a href="/Projeler/ProjeTamamla/@proje.ProjeID" style="color:green">&radic; &mdash; Tamamlandı Olarak İşaretle</a>
+                }
+                else
+                {
+                    <a href="/Projeler/ProjeDevamEt/@proje.ProjeID" style="color:red">&Chi; &mdash; Tamamlanmadı Olarak İşaretle</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Projeler/YeniProje/" class="btn btn-info">Yeni Proje</a>
+
