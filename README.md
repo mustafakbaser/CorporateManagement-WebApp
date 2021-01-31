@@ -6,7 +6,7 @@
 <a href="https://github.com/mustafakbaser/RakamIKProjesi/pulls"><img src="https://img.shields.io/github/issues-pr/mustafakbaser/RakamIKProjesi" alt="Pull Requests Badge"/></a>
 <a href="https://github.com/mustafakbaser/RakamIKProjesi/issues"><img src="https://img.shields.io/github/issues/mustafakbaser/RakamIKProjesi" alt="Issues Badge"/></a>
 <a href="https://github.com/mustafakbaser/RakamIKProjesi/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/mustafakbaser/RakamIKProjesi?color=2b9348"></a>
-<a href="https://github.com/mustafakbaser/RakamIKProjesi/LICENSE"><img src="https://img.shields.io/github/license/mustafakbaser/RakamIKProjesi?color=2b9348" alt="License Badge"/></a>
+<a href="https://github.com/mustafakbaser/RakamIKProjesi/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mustafakbaser/RakamIKProjesi?color=2b9348" alt="License Badge"/></a>
 </div>
 <br>
 
