@@ -11,14 +11,3 @@
 <br>
 
 This is a micro project I developed and prepared for Rakam Teknoloji.
-
-If you like this Repo, Please click the :star:
-
-
-## :pencil: License
-
-This project is licensed under [MIT](https://opensource.org/licenses/MIT) license.
-
-## :man_astronaut: Show your support
-
-Give a ⭐️ if this project helped you!
