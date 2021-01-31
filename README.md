@@ -9,5 +9,6 @@
 
 </div>
 <br>
-
+<div align="center">
 This is a micro project I developed and prepared for Rakam Teknoloji.
+</div>
