@@ -28,12 +28,20 @@ namespace RakamIKProjesi.Controllers
             context.SaveChanges(); //veritabanına kayıt, Ado.NET'deki ExecuteNonQuery'nin karşılığı
             return RedirectToAction("Index"); // Index'e yönlendirme
         }
-        public ActionResult DepartmanSil(int id)
+        public ActionResult DepartmanPasif(int id)
         {
             var dep = context.Departmans.Find(id);
-            context.Departmans.Remove(dep);
+            dep.Aktiflik=false;
+            //context.Departmans.Remove(dep); //direkt veritabanından silmek
             context.SaveChanges();
             return RedirectToAction("Index"); // Index'e yönlendirme
+        }
+        public ActionResult DepartmanAktif(int id)
+        {
+            var dep = context.Departmans.Find(id);
+            dep.Aktiflik = true;
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
         public ActionResult DepartmanVeri(int id)
         {
@@ -47,6 +55,13 @@ namespace RakamIKProjesi.Controllers
             depGuncelle.Aktiflik = dep.Aktiflik;
             context.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult DepartmanDetay(int id)
+        {
+            var degerler = context.Personels.Where(x => x.DepartmanID == id).ToList();
+            var dptAd = context.Departmans.Where(x => x.DepartmanID == id).Select(y => y.DepartmanAd).FirstOrDefault();
+            ViewBag.depAd = dptAd; // sanal bir değişken oluşturdum, dptAd'dan gelen değeri buraya atayacak. LINQ Sorgusu
+            return View(degerler);
         }
     }
 }

@@ -1,0 +1,29 @@
+﻿@using RakamIKProjesi.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="margin-top:30px; margin-bottom:30px">Departman Detay</h3>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Görüntülenen Departman: @ViewBag.depAd Departmanı</li>
+</ol>
+
+<table class="table table-hover">
+    <tr>
+        <th>Personel ID</th>
+        <th>Personel Ad</th>
+        <th>Birim</th>
+        <th>Yer Aldığı Proje</th>
+    </tr>
+    @foreach(var x in Model) {
+    <tr>
+        <td>@x.PersonelID</td>
+        <td>@x.PersonelAd</td>
+        <td>@x.Birim</td>
+        <td>@x.Proje</td>
+    </tr>
+    }
+</table>

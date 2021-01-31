@@ -15,10 +15,11 @@ namespace RakamIKProjesi.Models.Siniflar
         [Column(TypeName = "Varchar")] // PersonelAd'ın varchar değerinde ve 30 karakter uzunluğunda olacağını belirttim.
         [StringLength(30)]
         public string PersonelAd { get; set; }
-
         public string Birim { get; set; }
+        public bool PersonelAktif { get; set; }
         public Projeler Proje { get; set; } //Bir personel sadece bir projede çalışabilir.
-        public Departmanlar Departman { get; set; } //Bir personel sadece bir departmanda bulunabilir.
+        public int DepartmanID { get; set; }
+        public virtual Departmanlar Departman { get; set; } //Bir personel sadece bir departmanda bulunabilir.
 
 
     }

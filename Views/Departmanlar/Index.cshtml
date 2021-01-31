@@ -12,8 +12,9 @@
         <th>Departman ID</th>
         <th>Departman Adı</th>
         <th>Aktiflik</th>
-        <th>Sil</th>
+        <th>Durum</th>
         <th>Güncelle</th>
+        <th>Detaylar</th>
     </tr>
 
     @foreach (var departmanlar in Model)
@@ -36,11 +37,19 @@
                 }
             </td>
             <td>
-                <a href="/Departmanlar/DepartmanSil/@departmanlar.DepartmanID">Sil</a>
+                @if (departmanlar.Aktiflik == true)
+                {
+                    <a href="/Departmanlar/DepartmanPasif/@departmanlar.DepartmanID">Pasif Yap</a>
+                }
+                else
+                {
+                    <a href="/Departmanlar/DepartmanAktif/@departmanlar.DepartmanID">Aktif Yap</a>
+                }
             </td>
             <td>
                 <a href="/Departmanlar/DepartmanVeri/@departmanlar.DepartmanID">Güncelle</a>
             </td>
+            <td><a href="/Departmanlar/DepartmanDetay/@departmanlar.DepartmanID">Detaylar</a></td>
         </tr>
     }
 

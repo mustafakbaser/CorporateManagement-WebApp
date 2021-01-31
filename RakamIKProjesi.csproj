@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DepartmanlarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\ProjelerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -267,6 +268,10 @@
     <Content Include="Views\Projeler\Index.cshtml" />
     <Content Include="Views\Projeler\YeniProje.cshtml" />
     <Content Include="Views\Projeler\ProjeVeri.cshtml" />
+    <Content Include="Views\Departmanlar\DepartmanDetay.cshtml" />
+    <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\Personel\PersonelEkle.cshtml" />
+    <Content Include="Views\Personel\PersonelVeri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

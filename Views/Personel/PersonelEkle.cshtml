@@ -1,0 +1,23 @@
+﻿@model RakamIKProjesi.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3 style="margin-top:30px;margin-bottom:30px">Yeni Personel Kaydı</h3>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.PersonelAd)
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Birim)
+    @Html.TextBoxFor(x => x.Birim, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Departman)
+    @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.yeniPersonelDepartman, new { @class = "form-control" })
+    <br /> <hr />
+    @Html.Label("aktif-calisan", "Aktif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, true, new { id = "aktif-calisan", Checked = "checked" }) <br />
+    @Html.Label("pasif-calisan", "Pasif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, false, new { id = "pasif-calisan" })
+    <hr /> <br />
+    <button class="btn btn-primary">Personel Oluştur</button>
+</form>
+

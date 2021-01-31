@@ -1,0 +1,41 @@
+﻿@using RakamIKProjesi.Models.Siniflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:25px">
+    <tr>
+        <th>Personel ID</th>
+        <th>Personel Adı</th>
+        <th>Birim</th>
+        <th>Personel Durum</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var personeller in Model)
+    {
+        <tr>
+            <td>@personeller.PersonelID</td>
+            <td>@personeller.PersonelAd</td>
+            <td>@personeller.Birim</td>
+            <td>
+                @if (personeller.PersonelAktif == true)
+                {
+                    <p>Aktif Çalışan</p>
+                }
+                else
+                {
+                    <p>Pasif</p>
+                }
+            </td>
+            <th>@personeller.Departman.DepartmanAd</th>
+            <th><a href="/Personel/PersonelVeri/@personeller.PersonelID">Güncelle</a></th>
+        </tr>
+    }
+
+</table>
+
+<a href="/Personel/PersonelEkle" class="btn btn-primary">Yeni Personel</a>
