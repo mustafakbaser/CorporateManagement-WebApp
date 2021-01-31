@@ -58,6 +58,14 @@ namespace RakamIKProjesi.Controllers
                                                       Value = p.DepartmanID.ToString()
                                                   }).ToList();
             ViewBag.yeniPersonelDepartman = personelDeger;
+
+            List<SelectListItem> projeyeKayit = (from p in context.Projelers.ToList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = p.ProjeAd,
+                                                      Value = p.ProjeID.ToString()
+                                                  }).ToList();
+            ViewBag.projeyeKayit = projeyeKayit;
             var personel = context.Personels.Find(id);
             return View("PersonelVeri", personel);
         }
@@ -69,6 +77,7 @@ namespace RakamIKProjesi.Controllers
             pers.Birim = p.Birim;
             pers.DepartmanID = p.DepartmanID;
             pers.PersonelAktif = p.PersonelAktif;
+            pers.ProjeID = p.ProjeID;
             context.SaveChanges();
             return RedirectToAction("Index");
         }
