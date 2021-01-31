@@ -1,0 +1,40 @@
+﻿@using RakamIKProjesi.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model System.Collections.Generic.List<Personel>
+
+@{
+    ViewBag.Title = "IndexArama";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="margin-top:30px; margin-bottom:30px">Projeler</h2>
+<hr />
+<br />
+
+
+@using (Html.BeginForm("IndexArama", "Projeler", FormMethod.Get))
+{
+    <p>
+        Personel Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <td>Personel ID</td>
+        <td>Personel Adı</td>
+        <td>Çalıştığı Proje ID</td>
+    </tr>
+    @foreach (var personel in Model)
+    {
+        <tr>
+            <td>@personel.PersonelID</td>
+            <td>@personel.PersonelAd</td>
+            <td>@personel.ProjeID</td>
+        </tr>
+    }
+</table>

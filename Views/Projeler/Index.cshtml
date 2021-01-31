@@ -1,21 +1,37 @@
 ﻿@using RakamIKProjesi.Models.Siniflar
-@model List<Projeler>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Projeler>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2 style="margin-top:30px; margin-bottom:30px">Tüm Projelerimiz</h2>
+
+<h3 style="margin-top:30px; margin-bottom:30px">Projeler</h3>
 <hr />
+<br />
+
+
+@using (Html.BeginForm("IndexArama", "Projeler", FormMethod.Get))
+{
+    <p>
+        Personel Adına Göre: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<br />
+
 <table class="table table-bordered">
     <tr>
-        <td>Proje ID</td>
-        <td>Proje Adı</td>
-        <td>Proje Türü</td>
-        <td>Başlangıç Tarihi</td>
-        <td>Proje Aktifliği</td>
-        <td>Proje Güncelleme</td>
+        <th>Proje ID</th>
+        <th>Proje Adı</th>
+        <th>Proje Türü</th>
+        <th>Başlangıç Tarihi</th>
+        <th>Proje Aktifliği</th>
+        <th>Proje Güncelleme</th>
         <th>Durum Güncelleme</th>
     </tr>
     @foreach (var proje in Model)
@@ -52,33 +68,41 @@
                 {
                     <p>Bakım</p>
                 }
-        </td>
-        <td>@proje.BaslangicTarihi</td>
-        <td>
-            @if (proje.ProjeAktifligi == true)
-            {
-                <p>Aktif</p>
-            }
-            else
-            {
-                <p>Pasif</p>
-            }
-        </td>
-        <td>
-            <a href="/Projeler/ProjeVeri/@proje.ProjeID">Güncelle</a>
-        </td>
-        <td>
-            @if (proje.ProjeAktifligi == true)
-            {
-                <a href="/Projeler/ProjeTamamla/@proje.ProjeID" style="color:green">&radic; &mdash; Tamamlandı Olarak İşaretle</a>
-            }
-            else
-            {
-                <a href="/Projeler/ProjeDevamEt/@proje.ProjeID" style="color:red">&Chi; &mdash; Tamamlanmadı Olarak İşaretle</a>
-            }
-        </td>
-    </tr>
-}
+            </td>
+            <td>@proje.BaslangicTarihi</td>
+            <td>
+                @if (proje.ProjeAktifligi == true)
+                {
+                    <p>Aktif</p>
+                }
+                else
+                {
+                    <p>Pasif</p>
+                }
+            </td>
+            <td>
+                <a href="/Projeler/ProjeVeri/@proje.ProjeID">Güncelle</a>
+            </td>
+            <td>
+                @if (proje.ProjeAktifligi == true)
+                {
+                    <a href="/Projeler/ProjeTamamla/@proje.ProjeID" style="color:green">Tamamlandı Olarak İşaretle</a>
+                }
+                else
+                {
+                    <a href="/Projeler/ProjeDevamEt/@proje.ProjeID" style="color:red">Tamamlanmadı Olarak İşaretle</a>
+                }
+            </td>
+        </tr>
+    }
 </table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {
+        {"page-link"}
+    }
+})
+
 <a href="/Projeler/YeniProje/" class="btn btn-info">Yeni Proje</a>
 

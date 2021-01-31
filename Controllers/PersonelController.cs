@@ -11,10 +11,14 @@ namespace RakamIKProjesi.Controllers
     {
         // GET: Personel
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var degerler = context.Personels.ToList();
-            return View(degerler);
+            var personeller = from x in context.Personels select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                personeller = personeller.Where(y => y.PersonelAd.Contains(p));
+            }
+            return View(personeller.ToList());
         }
         [HttpGet]
         public ActionResult PersonelEkle()

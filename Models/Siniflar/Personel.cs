@@ -17,7 +17,7 @@ namespace RakamIKProjesi.Models.Siniflar
         public string PersonelAd { get; set; }
         public string Birim { get; set; }
         public bool PersonelAktif { get; set; }
-        public Projeler Proje { get; set; } //Bir personel sadece bir projede çalışabilir.
+        public int ProjeID { get; set; } //Bir personel sadece bir projede çalışabilir.
         public int DepartmanID { get; set; }
         public virtual Departmanlar Departman { get; set; } //Bir personel sadece bir departmanda bulunabilir.
 

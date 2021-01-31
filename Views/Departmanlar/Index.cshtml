@@ -39,11 +39,11 @@
             <td>
                 @if (departmanlar.Aktiflik == true)
                 {
-                    <a href="/Departmanlar/DepartmanPasif/@departmanlar.DepartmanID">Pasif Yap</a>
+                    <a href="/Departmanlar/DepartmanPasif/@departmanlar.DepartmanID" style="color:red">Pasifleştir</a>
                 }
                 else
                 {
-                    <a href="/Departmanlar/DepartmanAktif/@departmanlar.DepartmanID">Aktif Yap</a>
+                    <a href="/Departmanlar/DepartmanAktif/@departmanlar.DepartmanID" style="color:green">Aktifleştir</a>
                 }
             </td>
             <td>

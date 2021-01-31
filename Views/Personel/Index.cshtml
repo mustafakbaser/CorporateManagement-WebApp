@@ -5,6 +5,20 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<h3 style="margin-top:30px; margin-bottom:30px">Personeller</h3>
+<hr />
+<br />
+
+
+@using (Html.BeginForm("Index", "Personel", FormMethod.Get))
+{
+    <p>
+        Personel Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
 <table class="table table-bordered" style="margin-top:25px">
     <tr>
         <th>Personel ID</th>

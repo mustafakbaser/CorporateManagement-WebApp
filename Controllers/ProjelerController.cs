@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RakamIKProjesi.Models.Siniflar;
+using PagedList;
+using PagedList.Mvc;
 
 namespace RakamIKProjesi.Controllers
 {
@@ -11,9 +13,19 @@ namespace RakamIKProjesi.Controllers
     {
         // GET: Projeler
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult IndexArama(string p)
         {
-            var projeler = context.Projelers.ToList();
+            var projeler = from x in context.Personels select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                projeler = projeler.Where(y => y.PersonelAd.Contains(p));
+            }
+            return View(projeler.ToList());
+        }
+
+        public ActionResult Index(int sayfa = 1)
+        {
+            var projeler = context.Projelers.ToList().ToPagedList(sayfa, 5);
             return View(projeler);
         }
 
