@@ -4,24 +4,24 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3 style="margin-top:30px">Rakam Teknoloji | Personel Güncelle</h3>
+<h4 style="margin-top:30px;margin-bottom:30px">Personel Güncelle</h4>
+<hr />
 @*Bu sayfa yüklendikten sonra bir post işlemi gerçekleştirdiğinde hangi ActionResultın çalışacağı;*@
 
 @using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
 {
     @Html.HiddenFor(x => x.PersonelID)
 
-    @Html.LabelFor(x => x.PersonelAd)
+    @Html.Label("Personel Adı")
     @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
-
+    <br />
     @Html.LabelFor(x => x.Birim)
     @Html.TextBoxFor(x => x.Birim, new { @class = "form-control" })
-
+    <br />
     @Html.LabelFor(x => x.Departman)
     @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.yeniPersonelDepartman, new { @class = "form-control" })
-
+    <br />
     <hr />
-
     @Html.Label("aktif-calisan", "Aktif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, true, new { id = "aktif-calisan", Checked = "checked" })
     <br />
     @Html.Label("pasif-calisan", "Pasif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, false, new { id = "pasif-calisan" })
