@@ -20,7 +20,32 @@
         <tr>
             <td>@personeller.PersonelID</td>
             <td>@personeller.PersonelAd</td>
-            <td>@personeller.Birim</td>
+            <td>
+                @if (personeller.Birim == 1.ToString())
+                {
+                    <p>Yazılım Geliştirme</p>
+                }
+                else if (personeller.Birim == 2.ToString())
+                {
+                    <p>Analiz</p>
+                }
+                else if (personeller.Birim == 3.ToString())
+                {
+                    <p>Tasarım</p>
+                }
+                else if (personeller.Birim == 4.ToString())
+                {
+                    <p>Destek</p>
+                }
+                else if (personeller.Birim == 5.ToString())
+                {
+                    <p>Bakım</p>
+                }
+                else
+                {
+                    <p>Yazılım Geliştirme</p>
+                }
+            </td>
             <td>
                 @if (personeller.PersonelAktif == true)
                 {
