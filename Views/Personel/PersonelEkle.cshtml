@@ -14,7 +14,11 @@
     <br />
     @Html.LabelFor(x => x.Departman)
     @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.yeniPersonelDepartman, new { @class = "form-control" })
-    <br /> <hr />
+    <br /> 
+    @Html.Label("Personelin Atanacağı Proje")
+    @Html.DropDownListFor(x=>x.ProjeID, (List<SelectListItem>)ViewBag.personelProjeKaydi, new { @class = "form-control"})
+    
+    <hr />
     @Html.Label("aktif-calisan", "Aktif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, true, new { id = "aktif-calisan", Checked = "checked" }) <br />
     @Html.Label("pasif-calisan", "Pasif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, false, new { id = "pasif-calisan" })
     <hr /> <br />

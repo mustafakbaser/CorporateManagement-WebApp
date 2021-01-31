@@ -13,6 +13,7 @@ namespace RakamIKProjesi.Controllers
     {
         // GET: Projeler
         Context context = new Context();
+        int sayfa = 1;
         public ActionResult IndexArama(string p)
         {
             var projeler = from x in context.Personels select x;
@@ -20,7 +21,7 @@ namespace RakamIKProjesi.Controllers
             {
                 projeler = projeler.Where(y => y.PersonelAd.Contains(p));
             }
-            return View(projeler.ToList());
+            return View(projeler.ToList().ToPagedList(sayfa,5));
         }
 
         public ActionResult Index(int sayfa = 1)

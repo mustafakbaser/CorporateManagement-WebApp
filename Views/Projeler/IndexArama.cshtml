@@ -1,7 +1,8 @@
 ﻿@using RakamIKProjesi.Models.Siniflar
 @using PagedList
 @using PagedList.Mvc
-@model System.Collections.Generic.List<Personel>
+@*@model PagedList.IPagedList<Projeler>*@
+@model PagedList.IPagedList<Personel>
 
 @{
     ViewBag.Title = "IndexArama";
@@ -38,3 +39,11 @@
         </tr>
     }
 </table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("IndexArama", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {
+        {"page-link"}
+    }
+})

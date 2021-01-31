@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RakamIKProjesi.Models.Siniflar;
+using PagedList;
+using PagedList.Mvc;
 
 namespace RakamIKProjesi.Controllers
 {
@@ -30,6 +32,14 @@ namespace RakamIKProjesi.Controllers
                                                       Value = p.DepartmanID.ToString()
                                                   }).ToList();
             ViewBag.yeniPersonelDepartman = personelDeger;
+
+            List<SelectListItem> personelProje = (from p in context.Projelers.ToList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = p.ProjeAd,
+                                                      Value = p.ProjeID.ToString()
+                                                  }).ToList();
+            ViewBag.personelProjeKaydi = personelProje;
             return View();
         }
         [HttpPost]

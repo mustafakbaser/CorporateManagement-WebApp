@@ -16,14 +16,14 @@
         <th>Personel ID</th>
         <th>Personel Ad</th>
         <th>Birim</th>
-        <th>Yer Aldığı Proje</th>
+        <th>Yer Aldığı Proje (ID)</th>
     </tr>
     @foreach(var x in Model) {
     <tr>
         <td>@x.PersonelID</td>
         <td>@x.PersonelAd</td>
         <td>@x.Birim</td>
-        <td>@x.Proje</td>
+        <td>@x.ProjeID</td>
     </tr>
     }
 </table>
