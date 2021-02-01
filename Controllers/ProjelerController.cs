@@ -33,6 +33,14 @@ namespace RakamIKProjesi.Controllers
         [HttpGet]
         public ActionResult YeniProje()
         {
+            List<SelectListItem> birimKayit = (from p in context.Birims.ToList()
+                                               select new SelectListItem
+                                               {
+                                                   Text = p.BIRIM,
+                                                   Value = p.BirimID.ToString()
+                                               }).ToList();
+            ViewBag.birimKayit = birimKayit;
+            return View();
             //List<SelectListItem> deger1 = (from x in context.Projelers.ToList() select new SelectListItem {   Text = x.KullanilanTeknoloji, Value = x.ProjeID.ToString()}).ToList(); ViewBag.dgr1 = deger1;
             return View();
         }
@@ -66,9 +74,18 @@ namespace RakamIKProjesi.Controllers
         }
         public ActionResult ProjeGuncelle(Projeler proje)
         {
+            List<SelectListItem> birimKayit = (from p in context.Birims.ToList()
+                                               select new SelectListItem
+                                               {
+                                                   Text = p.BIRIM,
+                                                   Value = p.BirimID.ToString()
+                                               }).ToList();
+            ViewBag.birimKayit = birimKayit;
+            return View();
             var mevcutDeger = context.Projelers.Find(proje.ProjeID);
             mevcutDeger.ProjeAd = proje.ProjeAd;
             mevcutDeger.KullanilanTeknoloji = proje.KullanilanTeknoloji;
+            mevcutDeger.BirimID = proje.BirimID;
             mevcutDeger.ProjeAktifligi = proje.ProjeAktifligi;
             mevcutDeger.BaslangicTarihi = proje.BaslangicTarihi;
             context.SaveChanges();

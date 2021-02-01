@@ -15,14 +15,17 @@
     @Html.Label("Personel Adı")
     @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.Birim)
-    @Html.TextBoxFor(x => x.Birim, new { @class = "form-control" })
+    @Html.Label("Personel Yetkinliği")
+    @Html.DropDownListFor(x => x.BirimID, (List<SelectListItem>)ViewBag.birimKayit, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Departman)
     @Html.DropDownListFor(x => x.DepartmanID, (List<SelectListItem>)ViewBag.yeniPersonelDepartman, new { @class = "form-control" })
     <br />
     @Html.Label("Personelin Atanacağı Proje")
     @Html.DropDownListFor(x => x.ProjeID, (List<SelectListItem>)ViewBag.projeyeKayit, new { @class = "form-control" })
+    <br />
+    @Html.Label("Maaş")
+    @Html.TextBoxFor(x => x.Maas, new { @class = "form-control" })
     <hr />
     @Html.Label("aktif-calisan", "Aktif Personel") @Html.RadioButtonFor(x => x.PersonelAktif, true, new { id = "aktif-calisan", Checked = "checked" })
     <br />

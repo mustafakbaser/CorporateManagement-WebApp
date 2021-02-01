@@ -35,29 +35,29 @@
             <td>@personeller.PersonelID</td>
             <td>@personeller.PersonelAd</td>
             <td>
-                @if (personeller.Birim == 1.ToString())
+                @if (personeller.BirimID == 1)
                 {
-                    <p>Yazılım Geliştirme</p>
+                    <p>Java</p>
                 }
-                else if (personeller.Birim == 2.ToString())
+                else if (personeller.BirimID == 2)
                 {
-                    <p>Analiz</p>
+                    <p>C#</p>
                 }
-                else if (personeller.Birim == 3.ToString())
+                else if (personeller.BirimID == 3)
                 {
-                    <p>Tasarım</p>
+                    <p>Design</p>
                 }
-                else if (personeller.Birim == 4.ToString())
+                else if (personeller.BirimID == 4)
                 {
-                    <p>Destek</p>
+                    <p>Team Leader</p>
                 }
-                else if (personeller.Birim == 5.ToString())
+                else if (personeller.BirimID == 5)
                 {
-                    <p>Bakım</p>
+                    <p>Mobile Developer</p>
                 }
                 else
                 {
-                    <p>Yazılım Geliştirme</p>
+                    <p>Bakım</p>
                 }
             </td>
             <td>

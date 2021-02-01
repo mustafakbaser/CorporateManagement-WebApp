@@ -4,18 +4,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2 style="margin-top:30px">Departman Güncelle</h2>
-
+<h3 style="margin-top:30px;margin-bottom:30px">Departman Güncelle</h3>
+<hr />
 <!-- Bu sayfa yüklendikten sonra bir post işlemi gerçekleştirdiğinde hangi ActionResultın çalışacağı; -->
 @using (Html.BeginForm("DepartmanGuncelle", "Departmanlar", FormMethod.Post))
 {
 <div class="form-group">
     @Html.HiddenFor(x => x.DepartmanID) <!-- ID değerini gizli şekilde tutacak-->
 
-    @Html.LabelFor(x => x.DepartmanAd)
+    @Html.Label("Departman Adı")
     @Html.TextBoxFor(x => x.DepartmanAd, new { @class = "form-control" })
-
-
+    <br />
     @Html.LabelFor(x => x.Aktiflik)
     @Html.CheckBoxFor(x => x.Aktiflik, new { @checked = "checked" })
 </div>

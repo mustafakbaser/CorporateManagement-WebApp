@@ -5,20 +5,24 @@
 }
 
 <h3 style="margin-top:30px; margin-bottom:30px">Yeni Proje</h3>
+<hr />
 <form class="form-group" method="post">
 
-    @Html.LabelFor(x => x.ProjeAd)
+    @Html.Label("Proje Adı")
     @Html.TextBoxFor(x => x.ProjeAd, new { @class = "form-control" })
+    <br />
 
-    @Html.LabelFor(x => x.KullanilanTeknoloji)
+    @Html.Label("Proje Türü - Kullanılan Teknoloji")
     @Html.TextBoxFor(x => x.KullanilanTeknoloji, new { @class = "form-control" })
-
-    @Html.LabelFor(x => x.BaslangicTarihi)
+    <br />
+    @Html.Label("Yetkinlik Birimi")
+    @Html.DropDownListFor(x => x.BirimID, (List<SelectListItem>)ViewBag.birimKayit, new { @class = "form-control" })
+    <br />
+    @Html.Label("Proje Başlangıç Tarihi")
     @Html.TextBoxFor(x => x.BaslangicTarihi, new { @class = "form-control" })
-
+    <br />
     <hr />
-
-    @Html.LabelFor(x => x.ProjeAktifligi)
+    @Html.Label("Proje Aktifliği")
     @Html.CheckBoxFor(x => x.ProjeAktifligi, new { @class = "checked" })
 
     <br />

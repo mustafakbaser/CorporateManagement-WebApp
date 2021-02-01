@@ -40,6 +40,15 @@ namespace RakamIKProjesi.Controllers
                                                       Value = p.ProjeID.ToString()
                                                   }).ToList();
             ViewBag.personelProjeKaydi = personelProje;
+            
+
+            List<SelectListItem> birimKayit = (from p in context.Birims.ToList()
+                                               select new SelectListItem
+                                               {
+                                                   Text = p.BIRIM,
+                                                   Value = p.BirimID.ToString()
+                                               }).ToList();
+            ViewBag.birimKayit = birimKayit;
             return View();
         }
         [HttpPost]
@@ -66,6 +75,15 @@ namespace RakamIKProjesi.Controllers
                                                       Value = p.ProjeID.ToString()
                                                   }).ToList();
             ViewBag.projeyeKayit = projeyeKayit;
+
+            List<SelectListItem> birimKayit = (from p in context.Birims.ToList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = p.BIRIM,
+                                                     Value = p.BirimID.ToString()
+                                                 }).ToList();
+            ViewBag.birimKayit = birimKayit;
+
             var personel = context.Personels.Find(id);
             return View("PersonelVeri", personel);
         }
@@ -74,7 +92,7 @@ namespace RakamIKProjesi.Controllers
         {
             var pers = context.Personels.Find(p.PersonelID);
             pers.PersonelAd = p.PersonelAd;
-            pers.Birim = p.Birim;
+            pers.BirimID = p.BirimID;
             pers.DepartmanID = p.DepartmanID;
             pers.PersonelAktif = p.PersonelAktif;
             pers.ProjeID = p.ProjeID;

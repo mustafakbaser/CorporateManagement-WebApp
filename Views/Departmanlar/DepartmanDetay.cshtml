@@ -22,7 +22,32 @@
     <tr>
         <td>@x.PersonelID</td>
         <td>@x.PersonelAd</td>
-        <td>@x.Birim</td>
+        <td>
+            @if (x.BirimID == 1)
+            {
+                <p>Java</p>
+            }
+            else if (x.BirimID == 2)
+            {
+                <p>C#</p>
+            }
+            else if (x.BirimID == 3)
+            {
+                <p>Design</p>
+            }
+            else if (x.BirimID == 4)
+            {
+                <p>Team Leader</p>
+            }
+            else if (x.BirimID == 5)
+            {
+                <p>Mobile Developer</p>
+            }
+            else
+            {
+                <p>Bakım</p>
+            }
+        </td>
         <td>@x.ProjeID</td>
     </tr>
     }

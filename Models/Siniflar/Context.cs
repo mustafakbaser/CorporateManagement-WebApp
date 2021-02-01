@@ -12,6 +12,7 @@ namespace RakamIKProjesi.Models.Siniflar
         public DbSet<Departmanlar> Departmans { get; set; }
         public DbSet<Personel> Personels { get; set; }
         public DbSet<Projeler> Projelers { get; set; }
+        public DbSet<Birim> Birims { get; set; }
 
     }
 }

@@ -19,6 +19,7 @@ namespace RakamIKProjesi.Models.Siniflar
         [Column(TypeName = "char")] //Kullanılan teknolojiyi birim değerlerle ekleyeceğim. 
         [StringLength(1)]
         public string KullanilanTeknoloji { get; set; }
+        public int BirimID { get; set; }
         public string BaslangicTarihi { get; set; }
         public bool ProjeAktifligi { get; set; }
         public ICollection<Personel> Personels { get; set; } //Her bir projede birden fazla personel bulunabilir
