@@ -9,7 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true; // güncellemeleri yansıtmak için true yapıyorum.
+            AutomaticMigrationsEnabled = true; // güncellemeleri yansıtmak için true yapıyorum. 
         }
 
         protected override void Seed(RakamIKProjesi.Models.Siniflar.Context context)
