@@ -10,5 +10,5 @@
 </div>
 <br>
 <div align="center">
-This is a micro corporate management web application. Developed with MVC5 and ASP.NET.
+This is a micro corporate management web application. Developed with MVC5, ASP.NET.
 </div>
